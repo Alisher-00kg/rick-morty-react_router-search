@@ -9,9 +9,9 @@ export const Header = () => {
         <h1>Logo</h1>
       </StyledLink>
       <NavStyle>
+        <StyledLink to="/users">Users</StyledLink>
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/blog">Blog</StyledLink>
-        <StyledLink to="/users">Users</StyledLink>
       </NavStyle>
     </StyledHeader>
   );

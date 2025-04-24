@@ -22,7 +22,7 @@ export const UserInerPage = () => {
 
   return (
     <div>
-      <button onClick={() => navigate("/users")}>Back</button>
+      <BackButton onClick={() => navigate("/users")}>Back</BackButton>
       {user && (
         <CardStyle>
           <img src={user.image} alt={user.name} />
@@ -37,26 +37,53 @@ export const UserInerPage = () => {
 };
 
 const CardStyle = styled.div`
-  width: fit-content;
-  height: fit-content;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
   img {
-    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+
+  p {
+    font-size: 16px;
+    color: #555;
+    margin: 6px 0;
   }
 `;
+
 const StyledP = styled.p`
-  font-weight: 900;
-  color: ${(props) =>
-    props.status === "Alive"
-      ? "green"
-      : props.status === "Dead"
-      ? "red"
-      : props.status === "Unknown"
-      ? "black"
-      : "black"};
-  margin-top: 10px;
+  font-weight: bold;
+  color: ${({ status }) =>
+    status === "Alive" ? "#27ae60" : status === "Dead" ? "#e74c3c" : "#7f8c8d"};
+  margin-top: 12px;
+`;
+const BackButton = styled.button`
+  margin: 20px;
+  padding: 10px 18px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #357ab8;
+  }
 `;
